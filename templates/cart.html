@@ -1,0 +1,29 @@
+{% extends 'base/navbar.html' %}
+{% load mathfilters %}
+
+{% block title_extend %}Shop - Cart{% endblock %}
+
+{% block head_extend %}{% endblock %}
+
+{% block content %}
+        <div class="container-fluid mt-5 pt-3">
+            <section id="header">
+                <h1 class="text-light pl-5">Cart <i class="fas fa-shopping-cart"></i></h1>
+                <hr class="my-4 border-light">
+            </section>
+
+            <section id="products_list">
+                <div class="row justify-content-center my-5">
+                    <div class="col-md-3 ml-md-2 col-12 cart-price rounded rounded-lg">
+                        <div class="col-12 card">
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold h4">Summary:</h5>
+                                <hr class="my-4">
+                                <p class="card-text text-right">Total Price: <span class="text-danger h3">{{total}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+{% endblock %}

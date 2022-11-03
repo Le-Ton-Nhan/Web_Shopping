@@ -1,0 +1,78 @@
+{% extends 'base/navbar.html' %}
+
+{% block title_extend %}{{product.product_name}} Product details{% endblock %}
+
+{% block head_extend %}
+{% endblock %}
+
+{% block content %}
+        <div class="container mt-5">
+            <section id="header">
+                <h1 class="text-black pl-5">Product Info <i class="fas fa-shopping-cart"></i></h1>
+                <hr class="my-4 border-black">
+            </section>
+
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    {% if product.product_image %}
+                    <img class="img-thumbnail" src="{{product.product_image}}" alt="">
+                    {% else %}
+                    <img class="img-thumbnail" src="https://vignette.wikia.nocookie.net/sdorica/images/f/f5/CH_Puggi.png" alt="">
+                    {% endif %}
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card pd-info">
+                        <div class="card-body">
+                            <h1 class="card-title font-weight-bold">{{product.product_name}}</h5>
+                            <p class="card-text">From: {{product.company}}</p>
+                            <p class="card-text">Details: {{product.product_description}}</p>
+                            <p class="card-text">Price: {{product.sell_price}}</p>
+                            {# If there isn't any left, display Sold Out rather than Add to cart #}
+                            {% if product.quantity_in_stock %}
+                                <p class="card-text">{{product.quantity_in_stock}} in stock</p>
+                            {% else %}
+                                <a class="btn btn-secondary disabled" href="#" aria-disabled="true">Sold out</a>
+                            {% endif %}
+                            <p class="card-text">{{product.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if user.username %}
+        <div class="row">
+            <hr class="light-contact" />
+            <div class="cmt col-12" style="background-color: rgba(191, 191, 192, 0.6);">
+                <h4 style="padding-top: 1rem;">Comment 
+                </h4>
+                <form method='POST'>
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{form.Content}}
+                    </div>
+                    <button type="submit" class="btn btn-outline-light active" style="margin-bottom: 1rem;">Submit</button>
+                </form>
+            </div>
+            <hr class="light-contact" />
+        </div>
+        {% endif%}
+{% if not comment.all %}
+    <h2> No comment yet !!! </h2>
+{% else %}
+{% for cmt in comment %}
+    <div class="row">
+        <div class="col-11">
+            <div class="card1" style="margin-bottom: 1rem;  background-color: rgb(235, 235, 235);">
+                <div class="ms-2 me-auto" style="font-size: 16px; padding: 10px;">
+                    <div class="fw-bold" style="font-size: 16px;"><b style="font-size: 20px;">
+                    {{cmt.user.username}}                   
+                     </b>{{cmt.Time}}
+                    </div>
+                    {{cmt.Content}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endif%}
+{% endblock %}

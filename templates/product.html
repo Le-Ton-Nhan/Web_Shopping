@@ -1,0 +1,80 @@
+{% extends 'base/navbar.html' %}
+
+{% block title_extend %}Products{% endblock %}
+
+{% block head_extend %}
+{% endblock %}
+
+{% block content %}
+        <!-- Clear input choice if enter products/ (without filter request) -->
+        {% if request.path == '/products/' %}
+            <script>
+                localStorage.removeItem("filter");
+                localStorage.removeItem("sort");
+            </script>
+        {% endif %}
+
+        <div class="container-fluid mt-5 pt-3">
+            <section id="header">
+                <h1 class="text-black pl-5">Products <i class="fas fa-store-alt"></i></h1>
+                <hr class="my-4 border-light">
+            </section>
+
+            <section id="products_filter">
+                <div class="row mx-5 my-2 rounded rounded-lg">
+                    <form id="advanced-filter" class="form-inline my-2 my-lg-0" action="/products/search">
+                        <div class="form-group bg-info text-light mr-2 p-2 rounded rounded-lg">
+                            <label for="pname" class="font-weight-bold mx-sm-2"><span class="text-dark">Search: </span></label>
+                            <input id="pname" class="form-control mr-sm-2" name="pname" type="search" placeholder="Search" aria-label="Search">
+                        </div>                      
+                        <button class="btn btn-info m-sm-2" type="submit"><i class="fas fa-filter fa-fw"></i> Apply</button></a>
+                    </form>
+                </div>
+            </section>
+
+            <section id="products_list">
+                {% if count %}
+                    <div class="row ml-5">
+                        <h5 class="text-light p-2 bg-info rounded rounded-lg"> Showing <span class="text-dark">{{count}}</span> product</h4>
+                    </div>
+                {% else %}
+                    <div class="row justify-content-center my-5">
+                        <h3 class="text-light">No result<h5>
+                    </div>
+                    <div class="row justify-content-center my-5">
+                        <img src="https://i.imgur.com/l8lNhIC.jpg" class="img-thumbnail" alt="...">
+                    </div>
+                {% endif %}
+
+                <div class="row justify-content-center">
+                    {% for product in products %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 my-3">
+                        <div class="card">
+                        {# Use default image if product image not provided #}
+                        {% if product.product_image %}
+                            <img src="{{product.product_image}}" class="img-thumbnail card-img-top" alt="...">
+                        {% else %}
+                            <img src="https://i.imgur.com/l8lNhIC.jpg" class="img-thumbnail card-img-top" alt="...">
+                        {% endif %}
+                            <!-- <div class="card-body" method="POST" action="{{product.product_id}}/"> -->
+                            <div class="card-body bg-dark">
+
+                                <h5 class="card-title text-light font-weight-bold">{{product.product_name}}</h5>
+                                <p class="card-text text-light">Price: <span class="text-info">{{product.sell_price}}</span></p>
+                                <a href="/products/viewproduct/{{product.product_id}}" class="btn btn-info">View</a>
+                            {# If there isn't any left, display Sold Out rather than Add to cart #}
+                            {% if product.quantity_in_stock <= 0 %}
+                                <a class="btn btn-secondary disabled" href="#" aria-disabled="true">Sold out</a>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+
+{% endblock %}
+
+{% block script_extend %}
+{% endblock %}
