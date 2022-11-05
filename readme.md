@@ -19,7 +19,7 @@
 > python manage.py runserver
 - Cài đặt superuser (admin/admin)
 > python manage.py createsuperuser 
-## một số gói cài thêm 
+## Một số gói cài thêm 
 > pip install icecream
 > pip install django-ckeditor
 > pip install django-mathfilters
@@ -31,7 +31,7 @@
 - Pass: admin
 ### User thông thường:
 - Username: nhanlee
-- Pass: ThisIsNotAdmin
+- Pass: Nhanle1234@
 
 ## Chúc năng
 
