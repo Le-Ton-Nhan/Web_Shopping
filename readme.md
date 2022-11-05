@@ -47,5 +47,5 @@ o	Bình luận 1 sản phẩm
 ## Cấu trúc CSDL
 <img src="image/CSDL.png">
 
-### Link demo: https://shoesvendor.herokuapp.com/
+### Link demo: https://webshopping1.herokuapp.com/
 
