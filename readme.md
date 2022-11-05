@@ -35,14 +35,10 @@
 
 ## Chúc năng
 
-o	Đăng nhập, đăng ký
-•	Thực hiện escape các đầu vào, đối với username sử dụng regex để kiểm tra chỉ bao gồm các ký tự từ a-z, A-Z, 0-9, kiểm tra email có hợp lệ không sử dụng function validate_email được hỗ trợ bởi django
-o	Phân quyền user (hỗ trợ bởi django)
-•	Admin sẽ có quyền xóa sản phẩm, xóa user ..., còn user chỉ có quyền xem và đặt hàng sản phầm
-o	Tìm kiếm 1 sản phẩm
-•	Tìm kiếm sản phẩm theo tên sản phẩm
-o	Bình luận 1 sản phẩm
-•	Sử dụng csrf_token được hỗ trợ bởi django để tránh csrf attack
+-	Đăng nhập, đăng ký:   Thực hiện escape các đầu vào, đối với username sử dụng regex để kiểm tra chỉ bao gồm các ký tự từ a-z, A-Z, 0-9, kiểm tra email có hợp lệ không sử dụng function validate_email được hỗ trợ bởi django
+-	Phân quyền user (hỗ trợ bởi django):	Admin sẽ có quyền xóa sản phẩm, xóa user ..., còn user chỉ có quyền xem và đặt hàng sản phầm
+-	Tìm kiếm 1 sản phẩm:   Tìm kiếm sản phẩm theo tên sản phẩm
+-	Bình luận 1 sản phẩm:   Sử dụng csrf_token được hỗ trợ bởi django để tránh csrf attack
 
 ## Cấu trúc CSDL
 <img src="image/CSDL.png">
