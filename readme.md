@@ -1,25 +1,21 @@
 ## Cài đặt môi trường
-- mở teminal trên vscode
-- thực hiện lệnh `python3 -m venv venv` 
-- thực hiện:
-    - Ctrl +Shift + P
-    - gõ `python: Select Interpreter`
-    - chọn python3: thư mục ./venv/Scripts/python3
-- vào cmd trên vscode
-- cài đặt một số gói:
+- Mở teminal trên vscode
+- Thực hiện lệnh `python -m venv venv` 
+- Thực thi file: /venv/Scripts/activate.bat để vào môi trường
+- Cài đặt một số gói yêu cầu để sử dụng django:
     - pip install -U wheel 
     - pip install django 
-- Tạo project `django-admin startproject MyProject`
-# Các lệnh 
+## Các lệnh cần thiết để tạo project 
 - Tạo 1 project mới
-> django-admin startproject FinalProject
+> django-admin startproject MyProject
 - Tạo 1 app mới
 > python manage.py startapp MainApp
 - Kiểm tra thay đổi trong cơ sở dữ liệu lưu vào bộ nhớ tạm
 > python manage.py makemigrations
 - Lưu database
 > python manage.py migrate
-- Run python manage.py runserver
+- Run server
+> python manage.py runserver
 - Cài đặt superuser
 > python manage.py createsuperuser 
 (admin/admin)
@@ -42,17 +38,14 @@
 
 ## Mô tả
 ---------
-- Đây là một web chuyên về bán giày
-- Được thiết kế đơn giản gọn nhẹ nhưng đầy đủ chức năng để mang sự tiện lợi cho cả người bán lẫn người mua.
-- Giao dịch với khách hàng, tạo ra hoá đơn thanh toán cho cả khách hàng lẫn người bán, không hỗ trợ giao dịch trực truyến
- 
-### User cho thầy đăng nhập:
-- Username: thevsd27
-- Pass: 123
-### Admin cho thầy đăng nhập để quản lí:
+- Đây là một web bán quần áo
+
+### User admin để quan lý:
 - Username: admin
+- Pass: admin
+### User thông thường:
+- Username: nhanlee
 - Pass: ThisIsNotAdmin
-- Sau khi đăng nhập, thầy có thể bấm vào "Welcome, Admin" để hiển thị các mục có thể quản lí
 
 ## Chức năng
 -------------
