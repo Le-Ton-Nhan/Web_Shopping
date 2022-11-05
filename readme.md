@@ -26,7 +26,7 @@
 
 ## Mô tả
 - Đây là một web bán quần áo
-### User admin để quan lý:
+### User admin để quản lý:
 - Username: admin
 - Pass: admin
 ### User thông thường:
@@ -34,7 +34,7 @@
 - Pass: ThisIsNotAdmin
 
 ## Chúc năng
--------------
+
 o	Đăng nhập, đăng ký
 •	Thực hiện escape các đầu vào, đối với username sử dụng regex để kiểm tra chỉ bao gồm các ký tự từ a-z, A-Z, 0-9, kiểm tra email có hợp lệ không sử dụng function validate_email được hỗ trợ bởi django
 o	Phân quyền user (hỗ trợ bởi django)
@@ -45,7 +45,7 @@ o	Bình luận 1 sản phẩm
 •	Sử dụng csrf_token được hỗ trợ bởi django để tránh csrf attack
 
 ## Cấu trúc CSDL
-<img src="README_image/Database.png">
+<img src="image/CSDL.png">
 
 ### Link demo: https://shoesvendor.herokuapp.com/
 
